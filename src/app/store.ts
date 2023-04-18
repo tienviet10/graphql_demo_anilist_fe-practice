@@ -3,12 +3,14 @@ import {
   configureStore,
 } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
+import homePageSlice from "./pages/HomePage/homePageSlice";
 // import { jobApi } from "./services/job-api";
 // import { authApi } from "./services/auth-api";
 // import jobReducer from "../features/jobSlice";
 // import filterReducer from "../features/filterSlice";
 
 const rootReducer = combineReducers({
+  homePage: homePageSlice,
   // job: jobReducer,
   // filter: filterReducer,
   // [jobApi.reducerPath]: jobApi.reducer,

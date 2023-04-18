@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { Dispatch } from "redux";
 import styled from "styled-components";
-// import { useAppDispatch } from "../../hooks";
+
 import animeService from "../../services/animeService";
-// import { GetAnimePage } from "../../services/animeService/__generated__/GetAnimePage";
-// import { setAnimePage } from "./homePageSlice";
-// import { HotAnime } from "./hotAnime";
+import { GetAnimePage } from "../../services/animeService/__generated__/GetAnimePage";
+import { setAnimePage } from "./homePageSlice";
+
+import { useAppDispatch } from "../../hooks";
+import { HotAnime } from "./hotAnime";
 
 interface IHomePageProps {}
 
@@ -17,12 +19,12 @@ const Container = styled.div`
   align-items: center;
 `;
 
-// const actionDispatch = (dispatch: Dispatch) => ({
-//   setAnimePage: (page: GetAnimePage["Page"]) => dispatch(setAnimePage(page)),
-// });
+const actionDispatch = (dispatch: Dispatch) => ({
+  setAnimePage: (page: GetAnimePage["Page"]) => dispatch(setAnimePage(page)),
+});
 
 export function HomePage(props: IHomePageProps) {
-  // const { setAnimePage } = actionDispatch(useAppDispatch());
+  const { setAnimePage } = actionDispatch(useAppDispatch());
 
   const fetchAnimePage = async () => {
     const animePage = await animeService.getAnimePage(0, 200).catch((err) => {
@@ -30,7 +32,7 @@ export function HomePage(props: IHomePageProps) {
     });
 
     console.log("Anime page: ", animePage);
-    // if (animePage) setAnimePage(animePage);
+    if (animePage) setAnimePage(animePage);
   };
 
   useEffect(() => {
@@ -40,7 +42,7 @@ export function HomePage(props: IHomePageProps) {
   return (
     <Container>
       <h1>Hot Anime</h1>
-      {/* <HotAnime /> */}
+      <HotAnime />
     </Container>
   );
 }

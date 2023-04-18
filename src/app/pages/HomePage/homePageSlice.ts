@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
-// import { GetAnimePage } from "../../services/animeService/__generated__/GetAnimePage";
-// import { IHomePageState } from "./types";
 
-const initialState: any = {
+import { createSlice } from "@reduxjs/toolkit";
+import { IHomePageState } from "./types";
+
+const initialState: IHomePageState = {
   animePage: null,
 };
 
