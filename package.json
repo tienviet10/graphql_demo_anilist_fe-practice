@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "compile": "graphql-codegen",
     "watch": "graphql-codegen -w",
-    "schema:download": "npx apollo service:download --endpoint=https://anilist.co/graphql ./src/app/graphql/graphql-schema.json"
+    "schema:download": "npx apollo service:download --endpoint=https://anilist.co/graphql ./src/app/graphql/graphql-schema.json",
+    "schema:generate-watch": "npx apollo codegen:generate --localSchemaFile=./src/app/graphql/graphql-schema.json --target=typescript --tagName=gql --watch"
   },
   "dependencies": {
     "@apollo/client": "^3.7.12",
